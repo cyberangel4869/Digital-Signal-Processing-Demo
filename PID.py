@@ -1,7 +1,3 @@
-# 彭琳睿
-
-#PID控制器的单位脉冲响应仿真
-
 import matplotlib.pyplot as plt
 import numpy as np
 
