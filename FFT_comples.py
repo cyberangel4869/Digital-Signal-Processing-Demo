@@ -1,9 +1,7 @@
 
 import numpy as np
 
-# 设置打印选项以显示复数为 a + bj 格式
-
-
+# 采用递归调用的方式实现FFT运算，便于展示FFT内部的计算过程
 def fft(x):
     N = len(x)
     if N <= 1:
@@ -15,8 +13,10 @@ def fft(x):
     X_even = fft(x[::2])#按索引的奇偶分开计算
     X_odd = fft(x[1::2])
     T = [np.exp(-2j * np.pi * k / N) for k in range(N // 2)]#旋转因子
+    # FFT核心运算单元：蝶形结
     arr1 = X_even+T*X_odd
     arr2 = X_even-T*X_odd
+    # 每层蝶形结的输入输出
     print("eve:",X_even)
     print("odd:",X_odd)
     print("Wxx:",T)
